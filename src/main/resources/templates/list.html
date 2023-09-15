@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>books</title>
+    <script language="JavaScript">
+        function submitUrl(val) {
+            alert("submitted -" +val);
+        }
+
+    </script>
+</head>
+<body>
+<div class="container-fluid text-center">
+
+    <!--form name="upload" th:action="@{/upload}"  method="post" enctype="multipart/form-data" style="max-width: 350px; margin: 0 auto;"-->
+
+    <div class="border border-secondary p-3 rounded">
+        <p>Books </p>
+        <!--div th:if="${not #lists.isEmpty(listAll)}"-->
+        <h3> Books List</h3>
+        <table>
+            <tr>
+                <th>Title</th>
+                <th>Genre</th>
+                <th>Author</th>
+                <th>Date</th>
+            </tr>
+            <tr th:each="book : ${listAll}">
+                <td th:text="${training.trainingTitle}"></td>
+                <td th:text="${training.trainingType}"></td>
+                <td><a th:onclick="javascript:submitUrl([[${training.path}]]);"><p th:text="${training.path}"></a></td>
+                <td th:text="${training.trainingYear}"></td>
+            </tr>
+        </table>
+        <!--/div-->
+
+    </div>
+    <!--/form-->
+</div>
+</body>
+</html>
