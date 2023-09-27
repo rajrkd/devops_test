@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('build') {
+            steps {
+               mvn build 
+            }
+        }
+        stage('package') {
+            steps {
+               mvn clean package 
+            }
+        }
+        stage('prod') {
+            steps {
+                echo 'Hello World from production'
+            }
+        }
+    }
+}
+
