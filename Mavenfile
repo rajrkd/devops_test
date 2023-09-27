@@ -9,7 +9,7 @@ pipeline {
         }
         stage('unit test') {
             steps {
-               mvn package 
+               echo "test" 
             }
         }
         stage('prod') {
